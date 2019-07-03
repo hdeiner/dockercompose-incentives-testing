@@ -1,0 +1,177 @@
+
+SQL*Plus: Release 11.2.0.1.0 Production on Thu Jun 27 17:51:35 2019
+
+Copyright (c) 1982, 2009, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> 
+SQL> --
+SQL> -- FAGE  (Function)
+SQL> --
+SQL> --  Dependencies:
+SQL> --   DUAL (Synonym)
+SQL> --   STANDARD (Package)
+SQL> --   SYS_STUB_FOR_PURITY_ANALYSIS (Package)
+SQL> --
+SQL> CREATE OR REPLACE FUNCTION ODS.FAGE
+  2    (DTOFBIRTH   IN DATE,
+  3  	ASOFDT	    IN DATE)
+  4  	RETURN NUMBER
+  5   IS
+  6  	AGE	    NUMBER;
+  7  --
+  8  BEGIN
+  9   IF DTOFBIRTH < ASOFDT THEN
+ 10   SELECT FLOOR (MONTHS_BETWEEN(ASOFDT, DTOFBIRTH) / 12)
+ 11   INTO AGE
+ 12   FROM DUAL;
+ 13   ELSE AGE := 0;
+ 14   END IF;
+ 15  --
+ 16  RETURN AGE;
+ 17  END;
+ 18  /
+
+Function created.
+
+SQL> 
+SQL> 
+SQL> --
+SQL> -- FDEBUG	(Function)
+SQL> --
+SQL> --  Dependencies:
+SQL> --   STANDARD (Package)
+SQL> --   SYS_STUB_FOR_PURITY_ANALYSIS (Package)
+SQL> --   DEBUGPROC (Table)
+SQL> --
+SQL> CREATE OR REPLACE FUNCTION ODS.FDEBUG
+  2    (PTABLE	  IN VARCHAR2)
+  3  	RETURN	  CHAR
+  4   IS
+  5  	DEBUGIND   CHAR(1);
+  6  --
+  7   BEGIN
+  8  	SELECT debugsw
+  9  	  INTO debugind
+ 10  	  FROM debugproc
+ 11  	 WHERE procname = ptable;
+ 12  RETURN debugind;
+ 13   EXCEPTION WHEN NO_DATA_FOUND
+ 14    THEN
+ 15    RETURN 'N';
+ 16  END;
+ 17  /
+
+Function created.
+
+SQL> 
+SQL> 
+SQL> --
+SQL> -- FERRORCODES	(Function)
+SQL> --
+SQL> --  Dependencies:
+SQL> --   SYS_STUB_FOR_PURITY_ANALYSIS (Package)
+SQL> --   STANDARD (Package)
+SQL> --   REFDATASERVICEERROR (Table)
+SQL> --   LOG_ERROR (Procedure)
+SQL> --
+SQL> CREATE OR REPLACE FUNCTION ODS.ferrorcodes (errorgroup_in	 IN VARCHAR2,
+  2  						     errordesc_in    IN VARCHAR2)
+  3  	RETURN VARCHAR2
+  4  AS
+  5  	verrorcode   VARCHAR2 (5);
+  6  BEGIN
+  7  	SELECT	 ERRORCD
+  8  	  INTO	 verrorcode
+  9  	  FROM	 REFDATASERVICEERROR
+ 10  	 WHERE	 UPPER (TARGETSYSTEMNM) = UPPER (errorgroup_in)
+ 11  		 AND UPPER (ERRORMSG) = UPPER (errordesc_in);
+ 12  
+ 13  	RETURN verrorcode;
+ 14  EXCEPTION
+ 15  	WHEN OTHERS
+ 16  	THEN
+ 17  	   log_error ('ferrorcodes',
+ 18  		      errorgroup_in || ' ' || errordesc_in,
+ 19  		      SQLCODE,
+ 20  		      SQLERRM,
+ 21  		      SYSDATE,
+ 22  		      NULL);
+ 23  	   RETURN NULL;
+ 24  END ferrorcodes;
+ 25  /
+
+Function created.
+
+SQL> 
+SQL> 
+SQL> --
+SQL> -- FGETMEMBERID  (Function)
+SQL> --
+SQL> --  Dependencies:
+SQL> --   SUPPLIERORGANIZATION (Table)
+SQL> --   STANDARD (Package)
+SQL> --   SYS_STUB_FOR_PURITY_ANALYSIS (Package)
+SQL> --   AHMMRNBUSINESSSUPPLIER (Table)
+SQL> --   MEMBER (Table)
+SQL> --
+SQL> CREATE OR REPLACE FUNCTION ODS.fgetmemberid (
+  2  	memberid_in	  IN   MEMBER.sourcememberpatientid%TYPE,
+  3  	clientid_in	  IN   MEMBER.ahmsupplierid%TYPE,
+  4  	memberplanid_in   IN   MEMBER.primarymemberplanid%TYPE
+  5  )
+  6  	RETURN NUMBER
+  7  AS
+  8  	vmemberid	 MEMBER.memberid%TYPE;
+  9  	vusagemnemonic	 supplierorganization.usagemnemonic%TYPE;
+ 10  BEGIN
+ 11  	IF memberid_in IS NOT NULL AND clientid_in IS NOT NULL
+ 12  	THEN
+ 13  	   SELECT usagemnemonic
+ 14  	     INTO vusagemnemonic
+ 15  	     FROM ods.supplierorganization
+ 16  	    WHERE ahmsupplierid = clientid_in;
+ 17  
+ 18  	   IF vusagemnemonic = 'B'
+ 19  	   THEN
+ 20  	      SELECT memberid
+ 21  		INTO vmemberid
+ 22  		FROM MEMBER m, ahmmrnbusinesssupplier ahmbs
+ 23  	       WHERE m.memberid = ahmbs.ahmmrnmemberid
+ 24  		 AND sourcememberpatientid = memberid_in
+ 25  		 AND ahmbs.lastbusinessahmsupplierid = clientid_in;
+ 26  	   ELSE
+ 27  	      SELECT memberid
+ 28  		INTO vmemberid
+ 29  		FROM MEMBER
+ 30  	       WHERE sourcememberpatientid = memberid_in
+ 31  		 AND ahmsupplierid = clientid_in;
+ 32  	   END IF;
+ 33  	ELSIF memberplanid_in IS NOT NULL
+ 34  	THEN
+ 35  	   SELECT memberid
+ 36  	     INTO vmemberid
+ 37  	     FROM MEMBER
+ 38  	    WHERE primarymemberplanid = memberplanid_in AND ahmsupplierid <> 0;
+ 39  	ELSE
+ 40  	   vmemberid := 0;
+ 41  	END IF;
+ 42  
+ 43  	RETURN vmemberid;
+ 44  EXCEPTION
+ 45  	WHEN OTHERS
+ 46  	THEN
+ 47  	   RETURN 0;
+ 48  END;
+ 49  /
+
+Function created.
+
+SQL> 
+SQL> EXIT;
+Disconnected from Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options

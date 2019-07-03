@@ -1,0 +1,89 @@
+
+Connected to: Oracle Database 11g Enterprise Edition Release 11.2.0.4.0 - 64bit Production
+With the Partitioning, Real Application Clusters, Automatic Storage Management, OLAP,
+Data Mining and Real Application Tes
+Export done in US7ASCII character set and AL16UTF16 NCHAR character set
+server uses WE8ISO8859P1 character set (possible charset conversion)
+Note: table data (rows) will not be exported
+. exporting pre-schema procedural objects and actions
+. exporting foreign function library names for user INCV 
+. exporting PUBLIC type synonyms
+. exporting private type synonyms
+. exporting object type definitions for user INCV 
+About to export INCV's objects ...
+. exporting database links
+. exporting sequence numbers
+. exporting cluster definitions
+. about to export INCV's tables via Conventional Path ...
+EXP-00111: Table ACTIVITY resides in an Encrypted Tablespace SEC_DATA1 and will not be exported
+. . exporting table                 ACTIVITYDETAIL
+. . exporting table                  ACTIVITYGROUP
+. . exporting table      ACTIVITYGROUPACTIVITYXREF
+. . exporting table DBUG_SETINCENTIVECONFIGURATION
+. . exporting table     DBUG_SETMEMBERACTOCCURENCE
+. . exporting table  DBUG_SP_SETMBRTIERPROGRESSION
+. . exporting table               HISTORICPROGRAMS
+EXP-00111: Table INCENTIVEATTRIBUTE resides in an Encrypted Tablespace SEC_DATA1 and will not be exported
+. . exporting table          INCENTIVEATTRIBUTEVAL
+. . exporting table           INCENTIVEELIGIBILITY
+. . exporting table              INCENTIVEGOALTYPE
+. . exporting table             INCENTIVEGOALVALUE
+. . exporting table               INCENTIVEMESSAGE
+. . exporting table           INCENTIVEMESSAGEATTR
+. . exporting table    INCENTIVEMESSAGEDEFAULTATTR
+. . exporting table              INCENTIVEOVERRIDE
+. . exporting table             INCENTIVERUNDETAIL
+. . exporting table           INCVSQLSTATEMENT_TMP
+. . exporting table                  INCVTABLELIST
+. . exporting table                   INCV_RO_DUAL
+. . exporting table                LOAD_INCV_TABLE
+. . exporting table            LOAD_INCV_TABLEPART
+. . exporting table                    MASTERGROUP
+. . exporting table                 MASTERMNEMONIC
+. . exporting table               MBRACTVJUST_ARCH
+. . exporting table           MBRACTVTYOCCURR_ARCH
+. . exporting table            MBRELIGIBILITY_ARCH
+. . exporting table         MBRINCVSTATUSOVRD_ARCH
+. . exporting table             MBRPGMLASTRUN_ARCH
+. . exporting table             MBRREDEMPTION_ARCH
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table INCV.MEMBERACTIVITYJUSTIFICATION could not be exported
+. . exporting table       MEMBERACTIVITYOCCURRENCE
+. . exporting table   MEMBERACTIVITYOCCURRENCE_BKP
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table INCV.MEMBERACTIVITYOCCURRENCE_HIST could not be exported
+. . exporting table         MEMBERACTIVITYOCCURVAL
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table INCV.MEMBERACTIVITYOCCURVALHIST could not be exported
+. . exporting table     MEMBERACTIVITYOCCURVAL_BKP
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table INCV.MEMBERELIGIBILITY could not be exported
+. . exporting table  MEMBERINCENTIVESTATUSOVERRIDE
+. . exporting table           MEMBERPROGRAMLASTRUN
+. . exporting table               MEMBERREDEMPTION
+. . exporting table                 MEMBERTIERINFO
+. . exporting table                        PROGRAM
+. . exporting table            RELATEDACTIVITYXREF
+. . exporting table                         REWARD
+. . exporting table        REWARDACTIVITYGROUPXREF
+. . exporting table             REWARDACTIVITYXREF
+. . exporting table                   STG_ACTIVITY
+. . exporting table         STG_INCENTIVEATTRIBUTE
+. . exporting table         STG_INCENTIVEGOALVALUE
+. . exporting table           STG_INCENTIVEMESSAGE
+. . exporting table       STG_INCENTIVEMESSAGEATTR
+. . exporting table              STG_PROGRAMREWARD
+. . exporting table           SUPPLIERPROGRAMASSOC
+. exporting synonyms
+. exporting views
+. exporting stored procedures
+. exporting operators
+. exporting referential integrity constraints
+. exporting triggers
+. exporting indextypes
+. exporting bitmap, functional and extensible indexes
+. exporting posttables actions
+. exporting materialized views
+. exporting snapshot logs
+. exporting job queues
+. exporting refresh groups and children
+. exporting dimensions
+. exporting post-schema procedural objects and actions
+. exporting statistics
+Export terminated successfully with warnings.

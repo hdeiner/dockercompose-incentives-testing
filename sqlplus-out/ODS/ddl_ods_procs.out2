@@ -1,0 +1,54 @@
+
+SQL*Plus: Release 11.2.0.1.0 Production on Thu Jun 27 17:51:43 2019
+
+Copyright (c) 1982, 2009, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> 
+SQL> --
+SQL> -- LOG_ERROR  (Procedure)
+SQL> --
+SQL> --  Dependencies:
+SQL> --   STANDARD (Package)
+SQL> --   JERRORLOG (Table)
+SQL> --   JERRORLOG_SEQ (Sequence)
+SQL> --
+SQL> CREATE OR REPLACE PROCEDURE ODS.Log_Error (
+  2  		       ProcedureName_IN      IN 	       VARCHAR2,
+  3  		       Memberid_IN		     IN 	       VARCHAR2,
+  4  		       ErrorNumber_IN	     IN 	       NUMBER,
+  5  		       ErrorMessage_IN	     IN 	       VARCHAR2,
+  6  		       ErrorTimestamp_IN     IN 	       TIMESTAMP,
+  7  		       JSeq_IN				     IN 	       NUMBER)
+  8  IS
+  9  
+ 10  PRAGMA AUTONOMOUS_TRANSACTION;
+ 11  
+ 12  BEGIN
+ 13    INSERT INTO JErrorLog
+ 14    (ErrorLogSeq,ProcedureName,Memberid,
+ 15  	ErrorNumber,ErrorMessage,
+ 16  	ErrorTimestamp,JSeq)
+ 17    VALUES
+ 18    (ODS.JErrorLog_SEQ.nextval,ProcedureName_IN,Memberid_IN,
+ 19  	ErrorNumber_IN,ErrorMessage_IN,
+ 20  	ErrorTimestamp_IN,JSeq_IN);
+ 21  
+ 22  COMMIT;
+ 23  
+ 24  EXCEPTION
+ 25  WHEN OTHERS
+ 26  	      THEN NULL;
+ 27  END log_error;
+ 28  /
+
+Procedure created.
+
+SQL> 
+SQL> EXIT;
+Disconnected from Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options

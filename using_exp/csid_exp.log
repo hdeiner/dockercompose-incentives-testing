@@ -1,0 +1,253 @@
+
+Connected to: Oracle Database 11g Enterprise Edition Release 11.2.0.4.0 - 64bit Production
+With the Partitioning, Real Application Clusters, Automatic Storage Management, OLAP,
+Data Mining and Real Application Tes
+Export done in US7ASCII character set and AL16UTF16 NCHAR character set
+server uses WE8ISO8859P1 character set (possible charset conversion)
+Note: table data (rows) will not be exported
+. exporting pre-schema procedural objects and actions
+. exporting foreign function library names for user CSID 
+. exporting PUBLIC type synonyms
+. exporting private type synonyms
+. exporting object type definitions for user CSID 
+About to export CSID's objects ...
+. exporting database links
+. exporting sequence numbers
+. exporting cluster definitions
+. about to export CSID's tables via Conventional Path ...
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.ABSENCEOFEXT could not be exported
+. . exporting table              ABSENCEOFEXT_ARCH
+. . exporting table        ACTIVEMEASURERUNSETTING
+. . exporting table   ACTIVEMEASURESTTGMEASUREXREF
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.ACTIVEMEASURESUMMARY could not be exported
+. . exporting table AUDITMEMBERHEALTHSTATEFDBKXREF
+. . exporting table                    AUDITUPDATE
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.CALCULATORPOINTS could not be exported
+. . exporting table          CALCULATORPOINTS_ARCH
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.CAREENGINERUNMEMBERACTION could not be exported
+. . exporting table      CAREENGINERUNPERSONACTION
+. . exporting table                     CC_DUP_TMP
+. . exporting table                  CDMETLTRIGGER
+. . exporting table                CEONEPROCERRORS
+. . exporting table                     CERMA_ARCH
+. . exporting table                    CMP3$405014
+. . exporting table                   CMP3$7107552
+. . exporting table                    CMP4$405014
+. . exporting table                CSIDSTAGE2TABLE
+. . exporting table                 DATAREFRESHLOG
+. . exporting table  DBUG_GETCARECONSIDERFORMEMBER
+. . exporting table DBUG_GETCLINDASHBOARDFORMEMBER
+. . exporting table  DBUG_GETHISTPROGRECOFORMEMBER
+. . exporting table DBUG_GETPROGRAMRECOMMFORMEMBER
+. . exporting table       DBUG_MEMBERELECCOMMQUEUE
+. . exporting table         DBUG_MEMBER_TMV_ALERTS
+. . exporting table            DBUG_MERGE_ALERTSSL
+. . exporting table            DBUG_MERGE_CONDXSSL
+. . exporting table       DBUG_MERGE_EVNTMARKERSSL
+. . exporting table           DBUG_MERGE_MARKERSSL
+. . exporting table         DBUG_MHSPERSONVIW_DATA
+. . exporting table        DBUG_PRIVATEMEMBER_DATA
+. . exporting table         DBUG_SHAREDMEMBER_DATA
+. . exporting table                      DEBUGPROC
+. . exporting table       ERRLOG_MBRMHSEVENTMARKER
+. . exporting table           ERRLOG_MEMBERCTALERT
+. . exporting table       ERRLOG_MEMBERCTCONDITION
+. . exporting table           ERRLOG_MEMBERCTCONDX
+. . exporting table         ERRLOG_MEMBERTMVALERTS
+. . exporting table              GLOBAL_TEMP_GETCC
+. . exporting table    GLOBAL_TMP_MASTERSUPPLIERID
+. . exporting table              GLOBAL_TMP_MEMBER
+. . exporting table GLOBAL_TMP_MEMBERELECCOMMQUEUE
+. . exporting table   GLOBAL_TMP_MEMBERHEALTHSTATE
+. . exporting table                    HEAPMONITOR
+. . exporting table                       JUSTTEST
+. . exporting table                    LATESTAUDIT
+. . exporting table                LOAD_CSID_TABLE
+. . exporting table            LOAD_CSID_TABLEPART
+. . exporting table        LOG_MEMBERELECCOMMQUEUE
+. . exporting table         MBRACTIONOPPSCORE_ARCH
+. . exporting table MBRCAREPLANITEMPROBRELXREFHIST
+. . exporting table   MBRDRVDFACTOPPSCOREXREF_ARCH
+. . exporting table       MBRDRVDFACTPRODXREF_ARCH
+. . exporting table      MBRDRVFACTACTIONXREF_ARCH
+. . exporting table                MBRDRVFACT_ARCH
+. . exporting table   MBRHEALTHSTATEACTIONXREFDDPP
+. . exporting table       MBRRECMEDICALCLAIMS_ARCH
+. . exporting table        MBRRECOMALLERGYHIE_ARCH
+. . exporting table         MBRRECOMCCHISTORY_ARCH
+. . exporting table         MBRRECOMDIAGNOSIS_ARCH
+. . exporting table              MBRRECOMDRUG_ARCH
+. . exporting table      MBRRECOMENCOUNTERHIE_ARCH
+. . exporting table       MBRRECOMHEALTHSTATE_ARCH
+. . exporting table         MBRRECOMLABRESULT_ARCH
+. . exporting table      MBRRECOMORGANIZERHIE_ARCH
+. . exporting table       MBRRECOMPREAUTHCASE_ARCH
+. . exporting table       MBRRECOMPRECERTHIGH_ARCH
+. . exporting table    MBRRECOMPRECERTINSCASE_ARCH
+. . exporting table        MBRRECOMPROBLEMHIE_ARCH
+. . exporting table      MBRRECOMPROCEDUREHIE_ARCH
+. . exporting table         MBRRECOMPROCEDURE_ARCH
+. . exporting table          MBRRECOMPROVIDER_ARCH
+. . exporting table         MBRRECOMRESULTHIE_ARCH
+. . exporting table    MBRRECOMRULEATTRHILITE_ARCH
+. . exporting table               MBRRECOMRUN_ARCH
+. . exporting table          MBRRECOMUTILDRUG_ARCH
+. . exporting table       MBRRECOMUTILIZATION_ARCH
+. . exporting table       MBRRECOSUBSADMINHIE_ARCH
+. . exporting table         MBRRECPRESCCLAIMS_ARCH
+. . exporting table       MBRRECSECENCXREFHIE_ARCH
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MDFFEEDBACKXREF could not be exported
+. . exporting table           MDFFEEDBACKXREF_ARCH
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERACTIONOPPORTUNITYSCORE could not be exported
+EXP-00111: Table MEMBERACTIVECAREMEASURE resides in an Encrypted Tablespace SYSTEM and will not be exported
+. . exporting table            MEMBERACTIVEMEASURE
+. . exporting table      MEMBERACTIVEMEASURESTATUS
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERACTMSRRECOMENDHILITE could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERACTVEMEASURERECOMENDRULE could not be exported
+. . exporting table MEMBERACTVMEASUREJUSTIFICATION
+. . exporting table      MEMBERCAREDELIVERYMEASURE
+. . exporting table MEMBERCAREDELIVERYMEASUREINDEX
+EXP-00111: Table MEMBERCAREDELIVERYMEASUREREPO resides in an Encrypted Tablespace SYSTEM and will not be exported
+EXP-00111: Table MEMBERCAREDELIVERYMEASUREREPO2 resides in an Encrypted Tablespace SEC_DATA_32K and will not be exported
+. . exporting table                 MEMBERCAREPLAN
+. . exporting table             MEMBERCAREPLANITEM
+. . exporting table         MEMBERCAREPLANITEMHIST
+. . exporting table  MEMBERCAREPLANITEMPROBRELXREF
+. . exporting table MEMBERCAREPLANITEMRELATIONXREF
+. . exporting table  MEMBERCAREPLANITEMRELXREFHIST
+. . exporting table    MEMBERCAREPLANJUSTIFICATION
+. . exporting table                  MEMBERCONTROL
+. . exporting table     MEMBERCPIJUSTIFICATIONXREF
+. . exporting table      MEMBERCPJUSTIFICATIONTEXT
+EXP-00111: Table MEMBERCTALERT resides in an Encrypted Tablespace SYSTEM and will not be exported
+EXP-00111: Table MEMBERCTCONDITION resides in an Encrypted Tablespace SYSTEM and will not be exported
+. . exporting table  MEMBERCTCONDITIONRELATEDALERT
+. . exporting table        MEMBERCURRENTMEDICATION
+. . exporting table    MEMBERCURRENTMEDICATIONHIST
+. . exporting table         MEMBERCURRMEDHIGHLIGHT
+. . exporting table     MEMBERCURRMEDHIGHLIGHTHIST
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERDERIVEDFACT could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERDERIVEDFACTACTIONXREF could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERDERIVEDFACTOPPOSCOREXREF could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERDERIVEDFACTPRODUCTXREF could not be exported
+. . exporting table            MEMBERELECCOMMQUEUE
+. . exporting table        MEMBERELECCOMMQUEUE_OLD
+. . exporting table MEMBERHEALTHSTASSIGNEDPROVIDER
+. . exporting table MEMBERHEALTHSTASSIGNEDPRVDR_BK
+. . exporting table              MEMBERHEALTHSTATE
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERHEALTHSTATEACTIONXREF could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERHEALTHSTATEAUDIT could not be exported
+. . exporting table    MEMBERHEALTHSTATEAUDIT_ARCH
+. . exporting table          MEMBERHEALTHSTATECOMM
+. . exporting table       MEMBERHEALTHSTATECOMMDTL
+. . exporting table           MEMBERHEALTHSTATEDDD
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERHEALTHSTATEDRVDFACTXREF could not be exported
+. . exporting table   MEMBERHEALTHSTATEEVENTMARKER
+. . exporting table      MEMBERHEALTHSTATEFEEDBACK
+. . exporting table  MEMBERHEALTHSTATEFEEDBACKHIST
+. . exporting table  MEMBERHEALTHSTATEFEEDBACKXREF
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERHEALTHSTATEOPPOSCOREXREF could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERHEALTHSTATEPROVIDER could not be exported
+. . exporting table            MEMBERHEALTHSTATEXX
+. . exporting table         MEMBERHEALTHSTATE_ARCH
+. . exporting table             MEMBERHOMEWORKITEM
+. . exporting table         MEMBERHOMEWORKITEMHIST
+. . exporting table  MEMBERHOMEWORKITEMRELATEDLINK
+. . exporting table  MEMBERHOMEWORKITEMRELLINKHIST
+. . exporting table     MEMBERMEDCALCULATEDRESULTS
+. . exporting table MEMBERMEDCALCULATEDRESULTSHIST
+. . exporting table       MEMBERMEDFINDROLLUP_ARCH
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERMEDICALFINDINGROLLUP could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERMODELDETAIL could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERMODELDETAILHIST could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERMODELHEADER could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERMODELHEADERHIST could not be exported
+. . exporting table              MEMBERMODELOUTPUT
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERMODELOUTPUTHIST could not be exported
+. . exporting table                MEMBERMODELRANK
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERPDCSCOREHIST could not be exported
+. . exporting table                  MEMBERPROBLEM
+. . exporting table              MEMBERPROBLEMHIST
+EXP-00111: Table MEMBERQUALITYMEASURE resides in an Encrypted Tablespace SYSTEM and will not be exported
+. . exporting table     MEMBERQUALITYMEASURESTATUS
+. . exporting table    MEMBERQUALITYMEASURE_ERRLOG
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECMEDICALCLAIMS could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDALLERGYHIE could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDCCHISTORY could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDDIAGNOSIS could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDDRUG could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDENCOUNTERHIE could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDHEALTHSTATE could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDLABRESULT could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDORGANIZERHIE could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDPREAUTHCASE could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDPRECERTHILIGHT could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDPRECERTINSCASE could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDPROBLEMHIE could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDPROCEDURE could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDPROCEDUREHIE could not be exported
+. . exporting table  MEMBERRECOMMENDPRODUCTLASTRUN
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDPROVIDER could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDRESULTHIE could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDRULEATTRHILITE could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDRUN could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDUTILDRUG could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECOMMENDUTILIZATION could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECPRESCRIPTIONCLAIMS could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECSECENCOUNTERXREFHIE could not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERRECSUBSTANCEADMINHIE could not be exported
+EXP-00111: Table MEMBERREPORTEDHEALTHSTATE resides in an Encrypted Tablespace SEC_CSID_DATA and will not be exported
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.MEMBERSUPPRESSION could not be exported
+. . exporting table         MEMBERSUPPRESSION_ARCH
+. . exporting table                MEMBERTMVALERTS
+. . exporting table               MEMBERVISIONGOAL
+. . exporting table           MEMBERVISIONGOALHIST
+. . exporting table                    MHASP_STATS
+. . exporting table             MHSACTIONXREF_ARCH
+. . exporting table                    MHSAPDD_TMP
+. . exporting table         MHSASSIGNEDPROVIDERDDD
+. . exporting table       MHSASSIGNEDPROVIDER_ARCH
+. . exporting table MHSCLINICALREVIEWSTATUSHISTORY
+. . exporting table   MHSCOMMDTLTRANSMISSIONSTATUS
+. . exporting table                MHSCOMMDTL_ARCH
+. . exporting table                   MHSCOMM_ARCH
+. . exporting table           MHSDRVDFACTXREF_ARCH
+. . exporting table          MHSOPPOSCOREXREF_ARCH
+. . exporting table               MHSPROVIDER_ARCH
+. . exporting table   MISSSINGMEMBERHEALTHSTATCOMM
+. . exporting table                     MRPLR_ARCH
+. . exporting table               NEWMEMBERCONTROL
+. . exporting table              PERSONDERIVEDFACT
+. . exporting table    PERSONDERIVEDFACTACTIONXREF
+. . exporting table              PERSONHEALTHSTATE
+. . exporting table    PERSONHEALTHSTATEACTIONXREF
+. . exporting table  PERSONHEALTHSTATEDRVDFACTXREF
+. . exporting table  PERSONRECOMMENDPRODUCTLASTRUN
+. . exporting table             PERSONRECOMMENDRUN
+. . exporting table                        PRAKASH
+. . exporting table                     SAVETIMING
+. . exporting table           SEGMENTSIZE_TRACKING
+. . exporting table          STG_MEMBERMODELOUTPUT
+. . exporting table            STG_MEMBERMODELRANK
+. . exporting table             STG_MODELREFERENCE
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.STRATIFICATIONEXT could not be exported
+. . exporting table         STRATIFICATIONEXT_ARCH
+EXP-00113: Feature New Composite Partitioning Method is unsupported. Table CSID.STRATIFICATIONOUT could not be exported
+. . exporting table         STRATIFICATIONOUT_ARCH
+. exporting synonyms
+. exporting views
+. exporting stored procedures
+. exporting operators
+. exporting referential integrity constraints
+. exporting triggers
+. exporting indextypes
+. exporting bitmap, functional and extensible indexes
+. exporting posttables actions
+. exporting materialized views
+. exporting snapshot logs
+. exporting job queues
+. exporting refresh groups and children
+. exporting dimensions
+. exporting post-schema procedural objects and actions
+. exporting statistics
+Export terminated successfully with warnings.
