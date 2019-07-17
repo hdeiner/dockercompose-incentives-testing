@@ -25,4 +25,6 @@ target/
 *.tfstate.backup
 
 # Junk
-#*.out
+*.out
+*.out1
+*.out2
