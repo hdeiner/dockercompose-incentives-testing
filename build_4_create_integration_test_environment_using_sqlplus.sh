@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-figlet -f standard -w 180 "Oracle and Tomcat Containers"
+figlet -f standard -w 180 "Create Oracle and"
+figlet -f standard -w 180 "Tomcat Containers"
 
 ./build_6_destroy_integration_test_environment.sh
 
@@ -28,40 +29,40 @@ export ORACLE_HOME=$ORACLE_BASE/product/instantclient/11.2.0.4.0
 export DYLD_LIBRARY_PATH=$ORACLE_HOME/lib
 export TNS_ADMIN=$ORACLE_BASE/admin/network
 
-sqlplus system/oracle@$(hostname):1521/EE.oracle.docker @src/main/db/ddl_users.sql > ./ddl_users.out
+sqlplus system/oracle@$(hostname):1521/EE.oracle.docker @src/main/db/ddl_users.sql > ./sqlplus-out/ddl_users.out
 
-sqlplus CSID/CSID@$(hostname):1521/EE.oracle.docker @src/main/db/CSID/ddl_csid_tables.sql > ./ddl_csid_tables.out
-sqlplus CSID/CSID@$(hostname):1521/EE.oracle.docker @src/main/db/CSID/ddl_csid_grants.sql > ./ddl_csid_grants.out
+sqlplus CSID/CSID@$(hostname):1521/EE.oracle.docker @src/main/db/CSID/ddl_csid_tables.sql > ./sqlplus-out/CSID/ddl_csid_tables.out
+sqlplus CSID/CSID@$(hostname):1521/EE.oracle.docker @src/main/db/CSID/ddl_csid_grants.sql > ./sqlplus-out/CSID/dl_csid_grants.out
 
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_types.sql > ./ddl_ods_types.out1
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_tables.sql > ./ddl_ods_tables.out1
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_seq.sql > ./ddl_ods_seq.out1
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_procs.sql > ./ddl_ods_procs.out1
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_functions.sql > ./ddl_ods_functions.out1
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_packages.sql > ./ddl_ods_packages.out1
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_types.sql > ./sqlplus-out/ODS/ddl_ods_types.out1
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_tables.sql > ./sqlplus-out/ODS/ddl_ods_tables.out1
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_seq.sql > ./sqlplus-out/ODS/ddl_ods_seq.out1
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_procs.sql > ./sqlplus-out/ODS/ddl_ods_procs.out1
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_functions.sql > ./sqlplus-out/ODS/ddl_ods_functions.out1
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_packages.sql > ./sqlplus-out/ODS/ddl_ods_packages.out1
 
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_types.sql > ./ddl_ods_types.out2
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_tables.sql > ./ddl_ods_tables.out2
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_seq.sql > ./ddl_ods_seq.out2
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_procs.sql > ./ddl_ods_procs.out2
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_functions.sql > ./ddl_ods_functions.out2
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_packages.sql > ./ddl_ods_packages.out2
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_types.sql > ./sqlplus-out/ODS/ddl_ods_types.out2
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_tables.sql > ./sqlplus-out/ODS/ddl_ods_tables.out2
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_seq.sql > ./sqlplus-out/ODS/ddl_ods_seq.out2
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_procs.sql > ./sqlplus-out/ODS/ddl_ods_procs.out2
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_functions.sql > ./sqlplus-out/ODS/ddl_ods_functions.out2
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_packages.sql > ./sqlplus-out/ODS/ddl_ods_packages.out2
 
-sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_grants.sql > ./ddl_ods_grants.out
+sqlplus ODS/ODS@$(hostname):1521/EE.oracle.docker @src/main/db/ODS/ddl_ods_grants.sql > ./sqlplus-out/ODS/ddl_ods_grants.out
 
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_types.sql > ./ddl_incv_types.out1
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_tables.sql > ./ddl_incv_tables.out1
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_seq.sql > ./ddl_incv_seq.out1
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_packages.sql > ./ddl_incv_packages.out1
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_procedures.sql > ./ddl_incv_procedures.out1
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_views.sql > ./ddl_incv_views.out1
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_types.sql > ./sqlplus-out/INCV/ddl_incv_types.out1
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_tables.sql > ./sqlplus-out/INCV/ddl_incv_tables.out1
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_seq.sql > ./sqlplus-out/INCV/ddl_incv_seq.out1
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_packages.sql > ./sqlplus-out/INCV/ddl_incv_packages.out1
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_procedures.sql > ./sqlplus-out/INCV/ddl_incv_procedures.out1
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_views.sql > ./sqlplus-out/INCV/ddl_incv_views.out1
 
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_types.sql > ./ddl_incv_types.out2
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_tables.sql > ./ddl_incv_tables.out2
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_seq.sql > ./ddl_incv_seq.out2
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_packages.sql > ./ddl_incv_packages.out2
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_procedures.sql > ./ddl_incv_procedures.out2
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_views.sql > ./ddl_incv_views.out2
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_types.sql > ./sqlplus-out/INCV/ddl_incv_types.out2
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_tables.sql > ./sqlplus-out/INCV/ddl_incv_tables.out2
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_seq.sql > ./sqlplus-out/INCV/ddl_incv_seq.out2
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_packages.sql > ./sqlplus-out/INCV/ddl_incv_packages.out2
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_procedures.sql > ./sqlplus-out/INCV/ddl_incv_procedures.out2
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/main/db/INCV/ddl_incv_views.sql > ./sqlplus-out/INCV/ddl_incv_views.out2
 
 date
 
@@ -78,10 +79,10 @@ date
 
 figlet -f slant -w 160 "Load Incentives Data"
 
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/test/db/ODS/dml_ods_setup.sql > ./dml_ods_setup.out
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/test/db/INCV/dml_incv_setup.sql > ./dml_incv_setup.out
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/test/db/ODS/dml_ods_member.sql > ./dml_ods_member.out
-sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/test/db/INCV/dml_incv_program_setup.sql > ./dml_incv_program_setup.out
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/test/db/ODS/dml_ods_setup.sql > ./sqlplus-out/ODS/dml_ods_setup.out
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/test/db/INCV/dml_incv_setup.sql > ./sqlplus-out/INCV/dml_incv_setup.out
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/test/db/ODS/dml_ods_member.sql > ./sqlplus-out/ODS/dml_ods_member.out
+sqlplus INCV/INCV@$(hostname):1521/EE.oracle.docker @src/test/db/INCV/dml_incv_program_setup.sql > ./sqlplus-out/INCV/dml_incv_program_setup.out
 date
 
 rm -rf logs_tomcat

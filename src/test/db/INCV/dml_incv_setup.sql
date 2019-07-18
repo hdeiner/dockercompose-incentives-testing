@@ -1,3 +1,5 @@
+-- noinspection SqlNoDataSourceInspectionForFile
+
 SET ECHO ON
 
 SET DEFINE OFF;

@@ -1,8 +1,11 @@
+-- noinspection SqlNoDataSourceInspectionForFile
+
 --This file will have setup for Program, Reward and Activity Group.
 --Activity setup must not be added here. Create a seperate file for each activity and map then to the activity group id available here.
 
-set autocommit off
-    whenever SQLERROR EXIT ROLLBACK
+SET AUTOCOMMIT ON
+--  HJD set autocommit off
+--  HJD     whenever SQLERROR EXIT ROLLBACK
 
 -------------------------------------
 --Program id 1245 start Satish--
@@ -37,8 +40,8 @@ values (1,'INCGOALCAT_GRP','PARTTYPE_E',50,100,systimestamp,'TESTQ12018',systime
 -------------------------------------
 --Program id 1745 start Max--
 -------------------------------------
-set autocommit off
-    whenever SQLERROR EXIT ROLLBACK
+--  HJD set autocommit off
+--  HJD     whenever SQLERROR EXIT ROLLBACK
 
 
 -------------------------------------
@@ -46,8 +49,8 @@ set autocommit off
 -------------------------------------
 /*Program 1745 Start*/
 
-set autocommit off
-    whenever SQLERROR EXIT ROLLBACK
+--  HJD set autocommit off
+--  HJD     whenever SQLERROR EXIT ROLLBACK
 
 --Inserting a new program for the 'Ketchikan Gateway Borough and School District' supplier
 Insert into incv.PROGRAM (PROGRAMID,PROGRAMNM,PROGRAMEFFECTIVEDT,PROGRAMENDDT,INSERTEDDT,INSERTEDBY,UPDATEDDT,UPDATEDBY,DISPLAYDT)
@@ -209,4 +212,6 @@ values (1800,'INCGOALCAT_PGM','PARTTYPE_D',0,200,CURRENT_TIMESTAMP,'INCV',CURREN
 
 
 commit;
+
+EXIT;
 
