@@ -11,8 +11,8 @@ Basic theory of operation.  Bash scripts used to implement the workflow of a dev
 1. build_1_run_unit_tests.sh is what is used when unit tests and theire code is being put together.  Since unit tests are, by definition, independent of dependencies such as databases, they can be run and checked quickly many times.
 2. build_2_create_oracle_incentives_database_image.sh is used to create an Oracle 11g EE Oracle database image.  The DDL for the database schema is also based in here, but a case could be made that this is better done in the run_integration_tests script.  The idea of baking an image is that there is extraordinary work done by Oracle on first time startup.  By saving this image, we save around 8 minutes when we take the image and create a container from it, which will be done MUCH more often.
 3. build_3_create_tomcat_incentives_image is actually not being used right now for much.  The reason for its existence is political.  There is concern that if we were to use the Apache supplied and supported image and create containers from it, deploy wars in it, and save this container as an image, that it would not be viewed as "containerizing" the application.  In the future, this script will probably not be used starting from a Dockerfile, but done by docker commit, saving the container (with its deployed application) as an image.
-4. build_4_create_integration_test_environment dockercomposes the images for the database and applicaiton server into containers that can talk to one another.  It starts by tearing down any dockercompose currently running, as it is anticipated that developers will use the build_4_create_integration_test_environment anytime a database change is made and build_5_run_integration_tests even more frequently, as code changes are made.  The script creates the dockercompose environment (with a fresh Oracle), inserts the schema and inserts the data.
-5. build_5_run_integration_tests creates the final deployment war, deploys the tomcat application, and runs the integration test suite.
+4. build_4_create_integration_test_environment_using_sqlplus.sh dockercomposes the images for the database and applicaiton server into containers that can talk to one another.  It starts by tearing down any dockercompose currently running, as it is anticipated that developers will use the build_4_create_integration_test_environment anytime a database change is made and build_5_run_integration_tests even more frequently, as code changes are made.  The script creates the dockercompose environment (with a fresh Oracle), inserts the schema and inserts the data.  
+5. build_5_run_integration_tests creates the final deployment war, deploys the tomcat application, runs a smoke test, and will then run the integration test suite.
 6. build_6_destroy_integration_test_environment destroys the containers used, as well as cleans up debris files left around.
 
 ```bash
@@ -29,20 +29,28 @@ Basic theory of operation.  Bash scripts used to implement the workflow of a dev
 4. This script took 8.5 minutes to run on my laptop inside a MacOS Mojave virtual machine running inside my MacOS Mojave host.  Based on the logs, the vast najority of the time was spent on Oracle specific and opaque "Creating and starting Oracle instance" and "Completing Database Creation" tasks.
 
 ```bash
-./build_3_provision_database.sh
+./build_3_create_tomcat_incentives_image.sh
+```
+1. This will eventually be where we Dockerfile create Docker images with appropriate wars baked into them.
+2. For now, we build a tomcat:7.0.94-jre7 image with custom tomcat-users baked in, so we can use the Tomcat Manager. 
+
+```bash
+./build_4_provision_database.sh
 ```
 1. We have some misshapen DDL/DML scipts in src/main/db/ODS which must be run through SQL*Plus to work as of now.
 2. We should review the ".out" files that get created to ensure that things go well.
-3. THIS IS NOT ACCEPTABLE, BUT IT IS A START.  
+3. It was necessary to run the scripts twice to get around circular dependencies in the creation process.  We must learn how to create a database from first principles!
+4. THIS IS NOT ACCEPTABLE, BUT IT IS A START.  
 
 ```bash
-./build_4_run_integration_tests.sh
+./build_5_run_integration_tests.sh
 ```
 1. We are starting with a pre-compiled war and preset properties (incentivesweb-2019.04-SNAPSHOT.war, datasource.properties, incentives.properties, infrastructure.properties)
 2. https://incentives.azqa2.ahmcert.com/incentivesweb/incentives/en/memberPlan/121938900?processingDate=2019-04-19
    curl localhost:8080/incentivesweb-2019.04-SNAPSHOT/incentives/en/memberPlan/121938900?processingDate=2019-04-19
+
 ```bash
-./build_5_destroy_integration_test_environment.sh
+./build_6_destroy_integration_test_environment.sh
 ```
 1. Docker-compose away the containers we built.
 2. Delete the temporary files we created during the run that facilitated the integration of components.

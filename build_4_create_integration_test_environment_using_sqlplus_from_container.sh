@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-figlet -f standard -w 180 "Oracle and Tomcat Containers"
+figlet -f standard -w 180 "Create Oracle and"
+figlet -f standard -w 180 "Tomcat Containers"
 
 ./build_6_destroy_integration_test_environment.sh
 
