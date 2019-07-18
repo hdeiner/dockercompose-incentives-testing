@@ -46,8 +46,8 @@ Basic theory of operation.  Bash scripts used to implement the workflow of a dev
 ./build_5_run_integration_tests.sh
 ```
 1. We are starting with a pre-compiled war and preset properties (incentivesweb-2019.04-SNAPSHOT.war, datasource.properties, incentives.properties, infrastructure.properties)
-2. https://incentives.azqa2.ahmcert.com/incentivesweb/incentives/en/memberPlan/121938900?processingDate=2019-04-19
-   curl localhost:8080/incentivesweb-2019.04-SNAPSHOT/incentives/en/memberPlan/121938900?processingDate=2019-04-19
+2. The following: https://incentives.azqa2.ahmcert.com/incentivesweb/incentives/en/memberPlan/121938900?processingDate=2019-04-19
+3. Becomes: curl localhost:8080/incentivesweb-2019.04-SNAPSHOT/incentives/en/memberPlan/121938900?processingDate=2019-04-19
 
 ```bash
 ./build_6_destroy_integration_test_environment.sh
