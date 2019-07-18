@@ -5,6 +5,9 @@ FROM tomcat:7.0.94-jre7
 #RUN sed -i 's/autoDeploy="true"/autoDeploy="false"/g' /usr/local/tomcat/conf/server.xml
 ADD tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
 
+RUN apt-get update
+RUN apt-get install -y vim
+
 #RUN export CLASSPATH=/usr/local/tomcat/webapps/incentivesweb/WEB-INF/classes
 
 ###RUN mkdir -p /usr/local/tomcat/webapps/incentivesweb/WEB-INF/classes
