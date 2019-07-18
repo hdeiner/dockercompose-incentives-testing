@@ -9,6 +9,7 @@ unzip src/main/resources/docker-tomcat/incentivesweb-2019.04-SNAPSHOT.war -d tem
 cp src/main/resources/docker-tomcat/datasource.properties temp/WEB-INF/classes/.
 cp src/main/resources/docker-tomcat/incentives.properties temp/WEB-INF/classes/.
 cp src/main/resources/docker-tomcat/infrastructure.properties temp/WEB-INF/classes/.
+cp src/main/resources/docker-tomcat/log4j.xml temp/WEB-INF/classes/.
 cd temp
 jar -cvf ../incentivesweb.war * > /dev/null
 cd ..
