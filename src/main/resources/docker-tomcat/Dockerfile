@@ -1,22 +1,34 @@
-FROM tomcat:7.0.94-jre7
+FROM ubuntu:16.04
 
-####RUN /usr/local/tomcat/bin/catalina.sh stop
+# Install OpenJDK-8
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jdk && \
+    apt-get install -y ant && \
+    apt-get clean;
 
-#RUN sed -i 's/autoDeploy="true"/autoDeploy="false"/g' /usr/local/tomcat/conf/server.xml
-ADD tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
+# Fix certificate issues
+RUN apt-get update && \
+    apt-get install ca-certificates-java && \
+    apt-get clean && \
+    update-ca-certificates -f;
 
-RUN apt-get update
+# Setup JAVA_HOME -- useful for docker commandline
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+RUN export JAVA_HOME
+
+# Install Tomcat 7.0.54 from Apache Archives
+RUN apt install -y wget && \
+    wget https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.54/bin/apache-tomcat-7.0.54.tar.gz && \
+    tar xvf apache-tomcat-7.0.54.tar.gz && \
+    mv apache-tomcat-7.0.54 /opt/tomcat && \
+    rm apache-tomcat-7.0.54.tar.gz
+
+# Why not
+ADD tomcat-users.xml /opt/tomcat/conf/tomcat-users.xml
+
+# Aid to debugging
 RUN apt-get install -y vim
 
-#RUN export CLASSPATH=/usr/local/tomcat/webapps/incentivesweb/WEB-INF/classes
+EXPOSE 8080
 
-###RUN mkdir -p /usr/local/tomcat/webapps/incentivesweb/WEB-INF/classes
-#ADD datasource.properties /usr/local/tomcat/webapps/incentivesweb/WEB-INF/classes/datasource.properties
-#ADD incentives.properties /usr/local/tomcat/webapps/incentivesweb/WEB-INF/classes/incentives.properties
-#ADD infrastructure.properties /usr/local/tomcat/webapps/incentivesweb/WEB-INF/classes/infrastructure.properties
-
-#ADD incentivesweb-2019.04-SNAPSHOT.war /usr/local/tomcat/webapps/incentivesweb.war
-
-###EXPOSE 8080
-
-###CMD ["catalina.sh", "run"]
+CMD [ "/opt/tomcat/bin/catalina.sh","run" ]
