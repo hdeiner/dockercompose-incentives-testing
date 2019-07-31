@@ -6,8 +6,8 @@ date
 echo "Hack war file to include property files for Tomcat deployment"
 rm -rf temp
 unzip src/main/resources/docker-tomcat/incentivesweb-2019.04-SNAPSHOT.war -d temp > /dev/null
-rm temp/WEB-INF/lib/ojdbc-11g.jar
-cp lib/ojdbc6.jar temp/WEB-INF/lib/.
+#rm temp/WEB-INF/lib/ojdbc-11g.jar
+#cp lib/ojdbc6.jar temp/WEB-INF/lib/.
 cp src/main/resources/docker-tomcat/datasource.properties temp/WEB-INF/classes/.
 cp src/main/resources/docker-tomcat/incentives.properties temp/WEB-INF/classes/.
 cp src/main/resources/docker-tomcat/infrastructure.properties temp/WEB-INF/classes/.
