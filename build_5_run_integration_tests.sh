@@ -18,15 +18,15 @@ cd ..
 rm -rf temp
 
 docker logs tomcat 2> temp >/dev/null
-#deploys_start=$(grep -c "Deployment of web application archive /opt/tomcat/webapps/incentivesweb.war has finished" temp)
-#docker cp incentivesweb.war tomcat:/opt/tomcat/webapps/incentivesweb.war
-deploys_start=$(grep -c "Deployment of web application archive \[/usr/local/tomcat/webapps/incentivesweb.war\] has finished" temp)
+deploys_start=$(grep -c "Deployment of web application archive /usr/local/tomcat/webapps/incentivesweb.war has finished" temp)
 docker cp incentivesweb.war tomcat:/usr/local/tomcat/webapps/incentivesweb.war
+#deploys_start=$(grep -c "Deployment of web application archive \[/usr/local/tomcat/webapps/incentivesweb.war\] has finished" temp)
+#docker cp incentivesweb.war tomcat:/usr/local/tomcat/webapps/incentivesweb.war
 echo "Waiting for incentivesweb application to deploy"
 while true ; do
   docker logs tomcat 2> temp >/dev/null
-#  deploys_current=$(grep -c "Deployment of web application archive /opt/tomcat/webapps/incentivesweb.war has finished" temp)
-  deploys_current=$(grep -c "Deployment of web application archive \[/usr/local/tomcat/webapps/incentivesweb.war\] has finished" temp)
+  deploys_current=$(grep -c "Deployment of web application archive /usr/local/tomcat/webapps/incentivesweb.war has finished" temp)
+#  deploys_current=$(grep -c "Deployment of web application archive \[/usr/local/tomcat/webapps/incentivesweb.war\] has finished" temp)
   if [ "$deploys_current" -gt "$deploys_start" ] ; then
     echo "READY TO ROCK AND ROLL!"
     break

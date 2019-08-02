@@ -62,7 +62,7 @@ mkdir logs_tomcat
 echo "Waiting for Tomcat to start"
 while true ; do
   curl -s localhost:8080 > tmp.txt
-  result=$(grep -c "Apache Tomcat/8.5.43" tmp.txt)
+  result=$(grep -c "Apache Tomcat/7.0.54" tmp.txt)
   if [ $result = 2 ] ; then
     echo "Tomcat has started"
     break
