@@ -18,12 +18,15 @@ cd ..
 rm -rf temp
 
 docker logs tomcat 2> temp >/dev/null
-deploys_start=$(grep -c "Deployment of web application archive /opt/tomcat/webapps/incentivesweb.war has finished" temp)
-docker cp incentivesweb.war tomcat:/opt/tomcat/webapps/incentivesweb.war
+#deploys_start=$(grep -c "Deployment of web application archive /opt/tomcat/webapps/incentivesweb.war has finished" temp)
+#docker cp incentivesweb.war tomcat:/opt/tomcat/webapps/incentivesweb.war
+deploys_start=$(grep -c "Deployment of web application archive \[/usr/local/tomcat/webapps/incentivesweb.war\] has finished" temp)
+docker cp incentivesweb.war tomcat:/usr/local/tomcat/webapps/incentivesweb.war
 echo "Waiting for incentivesweb application to deploy"
 while true ; do
   docker logs tomcat 2> temp >/dev/null
-  deploys_current=$(grep -c "Deployment of web application archive /opt/tomcat/webapps/incentivesweb.war has finished" temp)
+#  deploys_current=$(grep -c "Deployment of web application archive /opt/tomcat/webapps/incentivesweb.war has finished" temp)
+  deploys_current=$(grep -c "Deployment of web application archive \[/usr/local/tomcat/webapps/incentivesweb.war\] has finished" temp)
   if [ "$deploys_current" -gt "$deploys_start" ] ; then
     echo "READY TO ROCK AND ROLL!"
     break
@@ -34,11 +37,11 @@ date
 
 rm -rf temp incentivesweb.war
 
-echo Smoke test
-date
-echo "curl localhost:8080/incentivesweb/incentives/en/memberPlan/121938900?processingDate=2019-04-19"
-curl localhost:8080/incentivesweb/incentives/en/memberPlan/121938900?processingDate=2019-04-19
-date
+###echo Smoke test
+###date
+###echo "curl localhost:8080/incentivesweb/incentives/en/memberPlan/121938900?processingDate=2019-04-19"
+###curl localhost:8080/incentivesweb/incentives/en/memberPlan/121938900?processingDate=2019-04-19
+###date
 #echo "curl -s http://localhost:8080/passwordAPI/passwordDB"
 #curl -s http://localhost:8080/passwordAPI/passwordDB > ./.temp
 #if grep -q "RESULT_SET" ./.temp

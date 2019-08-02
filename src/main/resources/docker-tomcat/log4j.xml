@@ -9,7 +9,7 @@
         </layout>
     </appender>
     <appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/opt/tomcat/logs/HJD.log" />
+        <param name="File" value="/usr/local/tomcat/logs/HJD.DEBUG.log" />
         <param name="DatePattern" value="'.'yyyy-MM-dd" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="[%X{id}] [%p] %d %c %M - %m%n" />
@@ -21,7 +21,7 @@
     </root>
 
     <appender name="performance" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="${PERFORMANCE_LOG_LOCATION}" />
+        <param name="File" value="/usr/local/tomcat/logs/HJD.PERFORMANCE.log" />
         <param name="DatePattern" value="'.'yyyy-MM-dd" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="[%p] %d %c %M - %m%n" />
