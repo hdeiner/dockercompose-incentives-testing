@@ -7,6 +7,15 @@ In terms of what you need to run this project, here's my best guesses:
 4. Oracle SQLDeveloper is useful for debugging.  I am using version 19.1.0.094.
 5. The bash scripts make use of figlet to pretty things up. 
 
+#### Prerequisites
+* figlet
+* java 8 (used AdaptOpenJDK)
+* maven (used 3.6.1)
+* docker desktop for mac (or based on the platform)
+* IDE - Visual Studio Code or Intellij (optional, for development/debugging)
+* SQLPlus (optional)
+* Oracel SQL Developer (optional, for development/debugging)
+
 Basic theory of operation.  Bash scripts used to implement the workflow of a developer doing incentives development.
 1. build_1_run_unit_tests.sh is what is used when unit tests and theire code is being put together.  Since unit tests are, by definition, independent of dependencies such as databases, they can be run and checked quickly many times.
 2. build_2_create_oracle_incentives_database_image.sh is used to create an Oracle 11g EE Oracle database image.  The DDL for the database schema is also based in here, but a case could be made that this is better done in the run_integration_tests script.  The idea of baking an image is that there is extraordinary work done by Oracle on first time startup.  By saving this image, we save around 8 minutes when we take the image and create a container from it, which will be done MUCH more often.
