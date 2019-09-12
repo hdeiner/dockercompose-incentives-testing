@@ -83,7 +83,7 @@ docker exec oracle /bin/bash -c "/u01/app/oracle-product/11.2.0/EE/bin/sqlplus O
 docker cp oracle:/tmp/ddl_ods_packages.out2 ./sqlplus-out/ODS/ddl_ods_packages.out2
 
 docker cp ./src/main/db/ODS/ddl_ods_types.sql oracle:/tmp/ddl_ods_grants.sql
-docker exec oracle /bin/bash -c "/u01/app/oracle-product/11.2.0/EE/bin/sqlplus ODS/ODS @/tmp/ddl_ods_grants.sql > /tmp/ddl_ods_grants.out
+docker exec oracle /bin/bash -c "/u01/app/oracle-product/11.2.0/EE/bin/sqlplus ODS/ODS @/tmp/ddl_ods_grants.sql > /tmp/ddl_ods_grants.out"
 docker cp oracle:/tmp/ddl_ods_grants.out ./sqlplus-out/ODS/ddl_ods_grants.out
 
 mkdir sqlplus-out/INCV
