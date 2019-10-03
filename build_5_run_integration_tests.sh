@@ -37,11 +37,11 @@ date
 
 rm -rf temp incentivesweb.war
 
-###echo Smoke test
-###date
-###echo "curl localhost:8080/incentivesweb/incentives/en/memberPlan/121938900?processingDate=2019-04-19"
-###curl localhost:8080/incentivesweb/incentives/en/memberPlan/121938900?processingDate=2019-04-19
-###date
+figlet -f slant "Smoke Test"
+date
+echo "curl localhost:8080/incentivesweb/incentives/en/memberPlan/121938900?processingDate=2019-04-19"
+curl localhost:8080/incentivesweb/incentives/en/memberPlan/121938900?processingDate=2019-04-19
+date
 #echo "curl -s http://localhost:8080/passwordAPI/passwordDB"
 #curl -s http://localhost:8080/passwordAPI/passwordDB > ./.temp
 #if grep -q "RESULT_SET" ./.temp
